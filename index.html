@@ -18,10 +18,9 @@
       </button>
       <ul class="nav-menu">
         <li><a href="#inicio">Início</a></li>
+        <li><a href="#documentos">Documentos</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#experiencia">Experiência</a></li>
-        <li><a href="#projetos">Projetos</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
@@ -38,14 +37,37 @@
         <p class="hero-role">Geólogo</p>
         <p class="hero-tagline">Transformando conhecimento geológico em soluções para exploração, mineração e gestão de recursos.</p>
         <div class="hero-cta">
-          <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-          <a href="CV_GustavoMiranda_Geologist.pdf" class="btn btn-outline" target="_blank" rel="noopener">Baixar CV</a>
-          <a href="Cover Letter_GustavoMiranda.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Carta de Apresentação</a>
+          <a href="#documentos" class="btn btn-primary">Ver currículo e carta</a>
+          <a href="#sobre" class="btn btn-ghost">Saiba mais</a>
         </div>
       </div>
       <div class="hero-scroll">
         <span>Role para explorar</span>
         <div class="scroll-icon"></div>
+      </div>
+    </section>
+
+    <!-- Documentos: Currículo e Carta -->
+    <section id="documentos" class="section documentos">
+      <div class="container container--full">
+        <h2 class="section-title">Documentos</h2>
+        <p class="section-intro">Visualize o currículo ou a carta de apresentação. Use os botões para alternar.</p>
+        <div class="doc-tabs">
+          <button type="button" class="doc-tab is-active" data-doc="curriculo" aria-pressed="true">Currículo</button>
+          <button type="button" class="doc-tab" data-doc="carta" aria-pressed="false">Carta de Apresentação</button>
+        </div>
+        <div class="pdf-viewer-wrap">
+          <iframe
+            id="pdf-viewer"
+            class="pdf-viewer"
+            src="CV_GustavoMiranda_Geologist.pdf#toolbar=1&navpanes=1"
+            title="Currículo - Gustavo Miranda"
+          ></iframe>
+        </div>
+        <div class="doc-actions">
+          <a id="doc-download-cv" href="CV_GustavoMiranda_Geologist.pdf" class="btn btn-outline" target="_blank" rel="noopener" download>Baixar CV (PDF)</a>
+          <a id="doc-download-carta" href="Cover Letter_GustavoMiranda.pdf" class="btn btn-ghost" target="_blank" rel="noopener" download>Baixar Carta (PDF)</a>
+        </div>
       </div>
     </section>
 
@@ -58,7 +80,7 @@
         </p>
         <div class="cards">
           <article class="card">
-            <div class="card-icon">◇</div>
+            <div class="card-icon">◆</div>
             <h3>Geologia de Campo</h3>
             <p>Mapeamento, amostragem e interpretação de afloramentos e estruturas.</p>
           </article>
@@ -68,7 +90,7 @@
             <p>Modelagem de recursos minerais e apoio a projetos de exploração.</p>
           </article>
           <article class="card">
-            <div class="card-icon">○</div>
+            <div class="card-icon">◆</div>
             <h3>Análise & Integração</h3>
             <p>Integração de dados geológicos e ferramentas de SIG e modelagem.</p>
           </article>
@@ -116,115 +138,31 @@
       </div>
     </section>
 
-    <!-- Experiência -->
-    <section id="experiencia" class="section experiencia">
-      <div class="container">
-        <h2 class="section-title">Experiência Profissional</h2>
-        <p class="section-intro">Trajetória e conquistas</p>
-        <div class="timeline">
-          <!-- Edite os itens abaixo com os dados do seu CV -->
-          <article class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Empresa / Instituição</h3>
-              <p class="timeline-role">Cargo</p>
-              <p class="timeline-date">Período</p>
-              <ul>
-                <li>Descrição das principais atividades e resultados.</li>
-                <li>Substitua por itens do seu currículo.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Outra experiência</h3>
-              <p class="timeline-role">Cargo</p>
-              <p class="timeline-date">Período</p>
-              <ul>
-                <li>Atividades e conquistas.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-        <div class="formacao">
-          <h3 class="subsection-title">Formação Acadêmica</h3>
-          <article class="timeline-item">
-            <div class="timeline-marker timeline-marker-edu"></div>
-            <div class="timeline-content">
-              <h3>Curso / Instituição</h3>
-              <p class="timeline-date">Ano – Ano</p>
-              <p>Descrição breve ou ênfase.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projetos -->
-    <section id="projetos" class="section projetos">
-      <div class="container">
-        <h2 class="section-title">Projetos</h2>
-        <p class="section-intro">Trabalhos e projetos em destaque</p>
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-placeholder">
-              <span>Projeto 1</span>
-              <p>Adicione título, descrição e link ou imagem.</p>
-            </div>
-            <h3>Título do Projeto</h3>
-            <p>Breve descrição. Edite em index.html na seção #projetos.</p>
-          </article>
-          <article class="project-card">
-            <div class="project-placeholder">
-              <span>Projeto 2</span>
-              <p>Mapas, relatórios ou publicações.</p>
-            </div>
-            <h3>Segundo Projeto</h3>
-            <p>Descrição e tecnologias ou metodologias usadas.</p>
-          </article>
-          <article class="project-card">
-            <div class="project-placeholder">
-              <span>Projeto 3</span>
-              <p>Exploração, mapeamento ou pesquisa.</p>
-            </div>
-            <h3>Terceiro Projeto</h3>
-            <p>Resumo e resultados principais.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- Contato -->
     <section id="contato" class="section contato">
       <div class="container contato-grid">
-        <div class="contato-info">
+        <div class="contato-texto">
           <h2 class="section-title">Vamos Conversar?</h2>
-          <p>Estou aberto a novos projetos e oportunidades. Entre em contato.</p>
-          <div class="contato-links">
-            <a href="mailto:seu@email.com" class="contato-link">
-              <span class="contato-label">Email</span>
-              <span>seu@email.com</span>
-            </a>
-            <a href="https://wa.me/5511999999999" class="contato-link" target="_blank" rel="noopener">
-              <span class="contato-label">WhatsApp</span>
-              <span>+55 (11) 99999-9999</span>
-            </a>
-            <a href="https://linkedin.com/in/seu-perfil" class="contato-link" target="_blank" rel="noopener">
-              <span class="contato-label">LinkedIn</span>
-              <span>linkedin.com/in/seu-perfil</span>
-            </a>
-          </div>
+          <p class="contato-intro">Estou aberto a novos projetos e oportunidades. Entre em contato por um dos canais abaixo.</p>
         </div>
-        <form class="form-contato" id="form-contato">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" required>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-          <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-          <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-        </form>
+        <div class="contato-links">
+          <a href="tel:+5561991540008" class="contato-link">
+            <span class="contato-label">Telefone</span>
+            <span class="contato-value">+55 61 99154-0008</span>
+          </a>
+          <a href="mailto:gustavomiranda.l@hotmail.com" class="contato-link">
+            <span class="contato-label">Email</span>
+            <span class="contato-value">gustavomiranda.l@hotmail.com</span>
+          </a>
+          <a href="https://wa.me/5561991540008" class="contato-link" target="_blank" rel="noopener">
+            <span class="contato-label">WhatsApp</span>
+            <span class="contato-value">+55 61 99154-0008</span>
+          </a>
+          <a href="https://www.linkedin.com/in/gustavomirandal" class="contato-link" target="_blank" rel="noopener">
+            <span class="contato-label">LinkedIn</span>
+            <span class="contato-value">linkedin.com/in/gustavomirandal</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -232,7 +170,6 @@
   <footer class="footer">
     <div class="container">
       <p>© <span id="year"></span> Gustavo de Miranda Leite. Todos os direitos reservados.</p>
-      <p class="footer-note">Atualize os textos com o conteúdo do seu CV e carta de apresentação em <code>index.html</code>.</p>
     </div>
   </footer>
 

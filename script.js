@@ -22,21 +22,41 @@
     });
   }
 
-  // Formulário de contato (envio por mailto por padrão; pode trocar por backend depois)
-  var form = document.getElementById('form-contato');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var nome = form.querySelector('#nome').value.trim();
-      var email = form.querySelector('#email').value.trim();
-      var msg = form.querySelector('#mensagem').value.trim();
-      if (!nome || !email || !msg) return;
-      var subject = encodeURIComponent('Contato pelo portfólio - ' + nome);
-      var body = encodeURIComponent('Nome: ' + nome + '\nEmail: ' + email + '\n\nMensagem:\n' + msg);
-      // Substitua seu@email.com pelo seu email real no index.html
-      var mailto = document.querySelector('a[href^="mailto:"]');
-      var emailAddr = mailto ? mailto.getAttribute('href').replace('mailto:', '').split('?')[0] : 'seu@email.com';
-      window.location.href = 'mailto:' + emailAddr + '?subject=' + subject + '&body=' + body;
+  // Alternar entre Currículo e Carta (documentos)
+  var pdfViewer = document.getElementById('pdf-viewer');
+  var docTabs = document.querySelectorAll('.doc-tab');
+  var docDownloadCv = document.getElementById('doc-download-cv');
+  var docDownloadCarta = document.getElementById('doc-download-carta');
+
+  var docs = {
+    curriculo: {
+      src: 'CV_GustavoMiranda_Geologist.pdf#toolbar=1&navpanes=1',
+      title: 'Currículo - Gustavo Miranda'
+    },
+    carta: {
+      src: 'Cover Letter_GustavoMiranda.pdf#toolbar=1&navpanes=1',
+      title: 'Carta de Apresentação - Gustavo Miranda'
+    }
+  };
+
+  function setDocView(docKey) {
+    if (!docs[docKey] || !pdfViewer) return;
+    pdfViewer.src = docs[docKey].src;
+    pdfViewer.title = docs[docKey].title;
+    docTabs.forEach(function (tab) {
+      var isActive = tab.getAttribute('data-doc') === docKey;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-pressed', isActive);
     });
+    if (docDownloadCv) docDownloadCv.classList.toggle('is-primary', docKey === 'curriculo');
+    if (docDownloadCarta) docDownloadCarta.classList.toggle('is-primary', docKey === 'carta');
   }
+
+  docTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      setDocView(tab.getAttribute('data-doc'));
+    });
+  });
+
+  if (pdfViewer && docDownloadCv) docDownloadCv.classList.add('is-primary');
 })();
