@@ -1,0 +1,657 @@
+/* ===== Variáveis – Paleta Gustavo Miranda ===== */
+:root {
+  --gold: #C19A44;
+  --gold-dark: #8C6D2D;
+  --bg-dark: #1A1A1A;
+  --bg-card: #3A3A3A;
+  --text: #f5f5f5;
+  --text-muted: #b0b0b0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.25s ease;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-dark);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--gold-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ===== Header & Nav ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(26, 26, 26, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(193, 154, 68, 0.15);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav-menu a:hover {
+  color: var(--gold);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg-dark);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
+    border-bottom: 1px solid var(--bg-card);
+  }
+
+  .nav-menu.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0 4rem;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(193, 154, 68, 0.08) 0%, transparent 50%),
+              linear-gradient(180deg, var(--bg-dark) 0%, #0d0d0d 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+.hero-location {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.hero-role {
+  font-size: 1.25rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.hero-tagline {
+  max-width: 520px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--bg-dark);
+  border-color: var(--gold);
+}
+
+.btn-primary:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+  color: var(--white);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--bg-card);
+}
+
+.btn-ghost:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.scroll-icon {
+  width: 24px;
+  height: 36px;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-icon::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 2px;
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.5; transform: translateX(-50%) translateY(6px); }
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 5rem 0;
+  border-top: 1px solid rgba(58, 58, 58, 0.6);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.section-intro {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+
+/* ===== Cards (Sobre) ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 2rem;
+  border: 1px solid rgba(193, 154, 68, 0.12);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  border-color: rgba(193, 154, 68, 0.35);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===== Habilidades ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.skill-group h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tags li {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(193, 154, 68, 0.15);
+}
+
+.skill-tags li:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ===== Experiência (Timeline) ===== */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid var(--bg-card);
+  margin-bottom: 3rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 0.35rem;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 3px solid var(--bg-dark);
+}
+
+.timeline-marker-edu {
+  background: var(--gold-dark);
+}
+
+.timeline-content h3 {
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-role {
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
+}
+
+.timeline-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-content ul {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding-left: 1.25rem;
+}
+
+.timeline-content li {
+  list-style: disc;
+  margin-bottom: 0.35rem;
+}
+
+.subsection-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.formacao .timeline {
+  padding-left: 2rem;
+  border-left: 2px solid var(--bg-card);
+}
+
+/* ===== Projetos ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(193, 154, 68, 0.12);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.project-card:hover {
+  border-color: rgba(193, 154, 68, 0.35);
+  transform: translateY(-4px);
+}
+
+.project-placeholder {
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.project-placeholder span {
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  color: var(--white);
+  padding: 1.25rem 1.5rem 0.25rem;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0 1.5rem 1.5rem;
+  line-height: 1.5;
+}
+
+/* ===== Contato ===== */
+.contato {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #0f0f0f 100%);
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contato-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contato-info .section-title {
+  margin-bottom: 1rem;
+}
+
+.contato-info > p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.contato-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contato-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--bg-card);
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+.contato-link:hover {
+  color: var(--gold);
+}
+
+.contato-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(193, 154, 68, 0.12);
+}
+
+.form-contato label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.form-contato input,
+.form-contato textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  background: var(--bg-dark);
+  border: 1px solid rgba(193, 154, 68, 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  transition: border-color var(--transition);
+}
+
+.form-contato input::placeholder,
+.form-contato textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.form-contato input:focus,
+.form-contato textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.form-contato button {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+/* ===== Footer ===== */
+.footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--bg-card);
+  text-align: center;
+}
+
+.footer p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-note {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.footer code {
+  background: var(--bg-card);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+#year {
+  color: var(--gold);
+}
