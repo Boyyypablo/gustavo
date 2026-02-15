@@ -31,11 +31,11 @@
   var docs = {
     curriculo: {
       src: 'CV_GustavoMiranda_Geologist.pdf#toolbar=1&navpanes=1',
-      title: 'Currículo - Gustavo Miranda'
+      title: 'Resume - Gustavo Miranda'
     },
     carta: {
       src: 'Cover Letter_GustavoMiranda.pdf#toolbar=1&navpanes=1',
-      title: 'Carta de Apresentação - Gustavo Miranda'
+      title: 'Cover Letter - Gustavo Miranda'
     }
   };
 
