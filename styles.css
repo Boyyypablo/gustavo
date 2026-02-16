@@ -444,28 +444,8 @@ ul {
 }
 
 /* ===== Habilidades ===== */
-.section.habilidades {
-  position: relative;
-  background-color: #1a1a1a;
-  background-image: url('premium_photo-1671548586562-55b919585b7b.avif');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-
-/* Overlay escuro para manter o texto legível */
-.section.habilidades::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 26, 26, 0.78);
-  pointer-events: none;
-}
-
 .section.habilidades .container {
   position: relative;
-  z-index: 1;
 }
 
 .skills-grid {
