@@ -438,43 +438,98 @@ ul {
   color: var(--gold-dark);
 }
 
-.highlight-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
+/* Carousel */
+.carousel {
+  position: relative;
   margin-top: 1rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.gallery-thumb {
-  display: block;
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(193, 154, 68, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
+.carousel .gallery-thumb {
+  flex: 0 0 100%;
   width: 100%;
-  aspect-ratio: 1;
+  min-width: 0;
+  aspect-ratio: 4/3;
   padding: 0;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   overflow: hidden;
   background: var(--bg-card);
   cursor: pointer;
-  border: 1px solid rgba(193, 154, 68, 0.2);
-  transition: border-color var(--transition), transform var(--transition);
+  transition: opacity var(--transition);
 }
 
-.gallery-thumb:hover {
-  border-color: var(--gold);
-  transform: scale(1.02);
+.carousel .gallery-thumb:hover {
+  opacity: 0.92;
 }
 
-.gallery-thumb img {
+.carousel .gallery-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-@media (max-width: 600px) {
-  .highlight-gallery {
-    grid-template-columns: repeat(2, 1fr);
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(26, 26, 26, 0.75);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform var(--transition), color var(--transition), background var(--transition);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-btn:hover {
+  color: var(--bg-dark);
+  background: var(--gold);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.carousel-prev {
+  left: -12px;
+}
+
+.carousel-next {
+  right: -12px;
+}
+
+@media (max-width: 520px) {
+  .carousel {
+    max-width: 100%;
   }
+  .carousel-prev { left: 6px; }
+  .carousel-next { right: 6px; }
 }
 
 /* ===== Lightbox ===== */

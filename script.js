@@ -60,6 +60,32 @@
 
   if (pdfViewer && docDownloadCv) docDownloadCv.classList.add('is-primary');
 
+  // Carousel: prev/next arrows
+  document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+    var track = carousel.querySelector('.carousel-track');
+    var thumbs = carousel.querySelectorAll('.gallery-thumb');
+    var total = thumbs.length;
+    var index = 0;
+
+    function updateTrack() {
+      if (!track) return;
+      var w = track.parentElement ? track.parentElement.offsetWidth : 0;
+      track.style.transform = 'translateX(-' + index * w + 'px)';
+    }
+
+    carousel.querySelector('.carousel-prev').addEventListener('click', function () {
+      index = index <= 0 ? total - 1 : index - 1;
+      updateTrack();
+    });
+    carousel.querySelector('.carousel-next').addEventListener('click', function () {
+      index = index >= total - 1 ? 0 : index + 1;
+      updateTrack();
+    });
+
+    window.addEventListener('resize', updateTrack);
+    updateTrack();
+  });
+
   // Lightbox: click thumbnail to enlarge
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightbox-img');
