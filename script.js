@@ -59,4 +59,34 @@
   });
 
   if (pdfViewer && docDownloadCv) docDownloadCv.classList.add('is-primary');
+
+  // Lightbox: click thumbnail to enlarge
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxClose = lightbox && lightbox.querySelector('.lightbox-close');
+
+  document.querySelectorAll('.gallery-thumb').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.getAttribute('data-full');
+      if (src && lightboxImg) {
+        lightboxImg.src = decodeURIComponent(src);
+        lightboxImg.alt = btn.querySelector('img') && btn.querySelector('img').alt ? btn.querySelector('img').alt : 'Enlarged view';
+        if (lightbox) lightbox.removeAttribute('hidden');
+      }
+    });
+  });
+
+  function closeLightbox() {
+    if (lightbox) lightbox.setAttribute('hidden', '');
+  }
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightbox) {
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lightbox && !lightbox.hasAttribute('hidden')) closeLightbox();
+  });
 })();
