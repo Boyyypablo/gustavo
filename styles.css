@@ -180,6 +180,24 @@ ul {
   justify-content: center;
 }
 
+.hero-photo-wrap {
+  margin: 0 auto 1.5rem;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
 .hero-label {
   font-size: 0.85rem;
   text-transform: uppercase;
