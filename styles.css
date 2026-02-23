@@ -396,6 +396,10 @@ ul {
   margin-bottom: 1.25rem;
 }
 
+.section.highlights .section-intro {
+  text-align: justify;
+}
+
 .doc-tabs {
   display: flex;
   gap: 0.5rem;
@@ -488,6 +492,7 @@ ul {
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1rem;
+  text-align: justify;
 }
 
 .highlight-link {
